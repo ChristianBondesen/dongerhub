@@ -2,12 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
-var cors = require('cors');
 const app = express();
 
 // API file for interacting with MongoDB
 const api = require('./server/routes/api');
-app.use(cors());
 // Parsers
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
