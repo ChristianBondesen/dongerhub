@@ -6,13 +6,19 @@ import { MaterialModule } from './material.module';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { AppRoutingModule } from './router.module';
+import { UserSearchComponent } from './pages/user-search/user-search.component';
+import { MostPopularComponent } from './pages/most-popular/most-popular.component';
+import { HowToJoinComponent } from './pages/how-to-join/how-to-join.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    HomepageComponent
+    HomepageComponent,
+    UserSearchComponent,
+    MostPopularComponent,
+    HowToJoinComponent
   ],
   imports: [BrowserModule, MaterialModule, AppRoutingModule],
   providers: [],
