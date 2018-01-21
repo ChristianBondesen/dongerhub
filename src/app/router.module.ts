@@ -7,7 +7,10 @@ import { MostPopularComponent } from './pages/most-popular/most-popular.componen
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
-  { path: 'search', component: UserSearchComponent },
+  {
+    path: 'login',
+    loadChildren: 'app/pages/user-login/login.module#LoginModule'
+  },
   { path: 'how-to-join', component: HowToJoinComponent },
   { path: 'most-popular', component: MostPopularComponent }
 ];
@@ -16,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

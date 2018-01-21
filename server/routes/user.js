@@ -1,11 +1,11 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var userSchema = new mongoose.Schema({
-  _id: String,
+let userSchema = new mongoose.Schema({
   name: String,
   email: String,
-  password: String
+  password: String,
+  admin: Boolean
 });
-mongoose.model('User', userSchema);
+mongoose.model('dongerhub-user', userSchema);
 
-module.exports = mongoose.model('User');
+module.exports = mongoose.model('dongerhub-user');

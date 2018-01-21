@@ -9,7 +9,7 @@ import { AppRoutingModule } from './router.module';
 import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { MostPopularComponent } from './pages/most-popular/most-popular.component';
 import { HowToJoinComponent } from './pages/how-to-join/how-to-join.component';
-
+import { LoginModule } from './pages/user-login/login.module';
 
 @NgModule({
   declarations: [
@@ -19,10 +19,10 @@ import { HowToJoinComponent } from './pages/how-to-join/how-to-join.component';
     HomepageComponent,
     UserSearchComponent,
     MostPopularComponent,
-    HowToJoinComponent,
+    HowToJoinComponent
   ],
-  imports: [BrowserModule, MaterialModule, AppRoutingModule],
+  imports: [BrowserModule, MaterialModule, LoginModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
