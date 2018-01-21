@@ -40,14 +40,12 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { PlatformModule } from '@angular/cdk/platform';
 import { ObserversModule } from '@angular/cdk/observers';
 import { PortalModule } from '@angular/cdk/portal';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /**
  * NgModule that includes all Material modules.
  */
 @NgModule({
   exports: [
-    BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -90,4 +88,4 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PortalModule
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }

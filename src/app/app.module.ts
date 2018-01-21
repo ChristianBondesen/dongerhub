@@ -9,7 +9,7 @@ import { AppRoutingModule } from './router.module';
 import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { MostPopularComponent } from './pages/most-popular/most-popular.component';
 import { HowToJoinComponent } from './pages/how-to-join/how-to-join.component';
-import { LoginModule } from './pages/user-login/login.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,8 +21,8 @@ import { LoginModule } from './pages/user-login/login.module';
     MostPopularComponent,
     HowToJoinComponent
   ],
-  imports: [BrowserModule, MaterialModule, LoginModule, AppRoutingModule],
+  imports: [BrowserModule, MaterialModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

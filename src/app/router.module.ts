@@ -6,17 +6,18 @@ import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { MostPopularComponent } from './pages/most-popular/most-popular.component';
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomepageComponent },
   {
     path: 'login',
     loadChildren: 'app/pages/user-login/login.module#LoginModule'
   },
   { path: 'how-to-join', component: HowToJoinComponent },
-  { path: 'most-popular', component: MostPopularComponent }
+  { path: 'most-popular', component: MostPopularComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

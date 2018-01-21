@@ -3,7 +3,7 @@
     <form [formGroup]="loginForm" novalidate>
       <div class="example-container">
         <mat-form-field>
-          <input matInput placeholder="Enter your email" [formControl]="loginForm.email" required>
+          <input matInput placeholder="Enter your email" formControlName="email">
           <mat-error *ngIf="loginForm.invalid">invalid email</mat-error>
         </mat-form-field>
       </div>

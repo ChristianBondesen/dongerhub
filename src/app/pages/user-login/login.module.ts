@@ -6,7 +6,8 @@ import { UserRegisterComponent } from '../user-register/user-register.component'
 import { MaterialModule } from '../../material.module';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [{ path: '', component: UserLoginComponent }];
+const routes: Routes = [
+  { path: '', component: UserLoginComponent }];
 @NgModule({
   declarations: [UserLoginComponent, UserRegisterComponent],
   imports: [
@@ -18,4 +19,4 @@ const routes: Routes = [{ path: '', component: UserLoginComponent }];
   exports: [],
   providers: []
 })
-export class LoginModule {}
+export class LoginModule { }
