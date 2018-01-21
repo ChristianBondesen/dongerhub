@@ -1,3 +1,26 @@
-<p>
-  user-register works!
-</p>
+<div class="col-4">
+  <form (onSubmit)="Register()" [formGroup]="newUser" novalidate>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Enter your name" formControlName="name">
+        <mat-error *ngIf="newUser.invalid">invalid name</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Enter your desired username" formControlName="username">
+        <mat-error *ngIf="newUser.invalid">invalid username</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Password" formControlName="password">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Repeat Password" formControlName="repeatPassword">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="email" matInput placeholder="Repeat email" formControlName="email">
+        <mat-error *ngIf="newUser.invalid">invalid password</mat-error>
+      </mat-form-field>
+      {{newUser.valid}}
+    </div>
+    <input type="submit" class="btn btn-success" [disabled]="newUser.invalid">
+  </form>
+</div>

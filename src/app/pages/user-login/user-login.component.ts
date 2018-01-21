@@ -8,18 +8,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UserLoginComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: [
         '',
         [
-          Validators.pattern('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$'),
+          Validators.minLength(6),
           Validators.required
         ]
       ]
     });
+  }
+  Login() {
+    console.log('logging user in');
   }
 }

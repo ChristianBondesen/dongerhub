@@ -7,7 +7,8 @@ import { MaterialModule } from '../../material.module';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: UserLoginComponent }];
+  { path: '', component: UserLoginComponent },
+  { path: 'register', component: UserRegisterComponent }];
 @NgModule({
   declarations: [UserLoginComponent, UserRegisterComponent],
   imports: [
