@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { UserLoginService } from '../user-login.service';
 
 @Component({
   selector: 'app-user-register',
@@ -8,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class UserRegisterComponent implements OnInit {
   newUser: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private service: UserLoginService) {}
 
   ngOnInit() {
     this.newUser = this.fb.group({
@@ -16,11 +17,12 @@ export class UserRegisterComponent implements OnInit {
       username: [''],
       password: [''],
       repeatPassword: [''],
-      email: [''],
+      email: ['']
     });
   }
   Register(): void {
-    console.log(this.newUser.value);
+    this.service.UserRegister(this.newUser.value).subscribe(data => {
+      console.log(data);
+    });
   }
-
 }

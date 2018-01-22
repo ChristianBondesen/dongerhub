@@ -1,14 +1,15 @@
-<form (onSubmit)="Login()" [formGroup]="loginForm" novalidate>
+<form (ngSubmit)="Login()" [formGroup]="loginForm" novalidate>
   <div class="example-container">
     <mat-form-field>
-      <input matInput placeholder="Enter your username" formControlName="username">
+      <input matInput placeholder="Enter your username" formControlName="name">
       <mat-error *ngIf="loginForm.invalid">invalid username</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input type="password" matInput placeholder="Password" formControlName="password">
       <mat-error *ngIf="loginForm.invalid">invalid password</mat-error>
     </mat-form-field>
-    {{loginForm.valid}}
+
   </div>
   <input type="submit" class="btn btn-success" [disabled]="loginForm.invalid">
+  <a class="btn btn-secondary" routerLink="register">Register</a>
 </form>

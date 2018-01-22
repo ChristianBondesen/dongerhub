@@ -1,5 +1,5 @@
 <div class="col-4">
-  <form (onSubmit)="Register()" [formGroup]="newUser" novalidate>
+  <form (ngSubmit)="Register()" [formGroup]="newUser" novalidate>
     <div class="example-container">
       <mat-form-field>
         <input matInput placeholder="Enter your name" formControlName="name">
