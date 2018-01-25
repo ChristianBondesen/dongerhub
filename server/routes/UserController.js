@@ -110,11 +110,10 @@ router.get('/:id', function(req, res) {
     if (req.decoded.admin) {
       res.status(200).send(user);
     } else {
-      res.status(200).send(() => {
-        us.name = user.name;
-        us.id = user._id;
-        us.username = user.username;
-        return us;
+      res.status(200).json({
+        name: user.name,
+        id: user._id,
+        username: user.username
       });
     }
   });
