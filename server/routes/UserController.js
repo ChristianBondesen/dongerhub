@@ -34,7 +34,15 @@ router.get('/', function(req, res) {
     if (err) {
       return res.status(500).send('There was a problem finding the users.');
     }
-    res.status(200).send(users);
+    return res.status(200).send(
+      users.map(item => {
+        let user = {};
+        user['id'] = item._id;
+        user['name'] = item.name;
+        user['username'] = item.username;
+        return user;
+      })
+    );
   });
 });
 
@@ -99,7 +107,16 @@ router.get('/:id', function(req, res) {
       return res.status(500).send('There was a problem finding the user.');
     }
     if (!user) return res.status(404).send('No user found.');
-    res.status(200).send(user);
+    if (req.decoded.admin) {
+      res.status(200).send(user);
+    } else {
+      res.status(200).send(() => {
+        us.name = user.name;
+        us.id = user._id;
+        us.username = user.username;
+        return us;
+      });
+    }
   });
 });
 module.exports = router;

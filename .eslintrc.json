@@ -8,6 +8,7 @@
     "linebreak-style": "off",
     "object-curly-spacing": "off",
     "comma-dangle": "off",
-    "new-cap": "off"
+    "new-cap": "off",
+    "arrow-parens": "off"
   }
 }

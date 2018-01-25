@@ -17,7 +17,7 @@ authRout.post('', (req, res) => {
 
       if (user && user.password === req.body.password) {
         const payload = {
-          admin: user.admin
+          admin: false
         };
         let token = jwt.sign(payload, config.secret, {
           expiresIn: '1h'
