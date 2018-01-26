@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UserLoginComponent implements OnInit {
   loginForm: FormGroup;
+  private validationMessages: { [key: string]: { [key: string]: string } };
   constructor(
     private fb: FormBuilder,
     private loginService: UserLoginService,
@@ -19,7 +20,7 @@ export class UserLoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.fb.group({
       name: ['', [Validators.required]],
-      password: ['', [Validators.minLength(6), Validators.required]]
+      password: ['', [Validators.required]]
     });
   }
   Login() {
@@ -27,7 +28,7 @@ export class UserLoginComponent implements OnInit {
       if (data.success) {
         sessionStorage.setItem('token', data.token);
       } else {
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/user-login');
       }
     });
   }

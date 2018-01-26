@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { User, Token } from '../../models/User';
+import { User } from '../../models/auth-models/login-user';
+import { Token } from '../../models/auth-models/token';
 
 @Injectable()
 export class UserLoginService {
