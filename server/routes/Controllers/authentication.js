@@ -28,6 +28,7 @@ authRout.post('', (req, res) => {
       const hashedPw = hasher.VerifyPassword(req.body.password, user.salt).passwordHash;
       if (hashedPw === user.password) {
         const payload = {
+          username: user.username,
           admin: user.admin
         };
         let token = jwt.sign(payload, config.secret, {

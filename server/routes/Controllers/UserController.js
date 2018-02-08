@@ -27,11 +27,17 @@ router.post('/', function (req, res) {
           .status(500)
           .send('There was a problem adding the information to the database.');
       }
-      res.status(200).json({
+      const payload = {
         username: user.username,
-        password: user.password,
-        token: null
-
+        admin: user.admin
+      };
+      const token = jwt.sign(payload, config.secret, {
+        expiresIn: '1h'
+      });
+      res.status(200).json({
+        token: token,
+        user: payload,
+        status: 'success'
       });
     }
   );

@@ -24,7 +24,13 @@ export class UserLoginComponent implements OnInit {
     });
   }
   Login() {
-    this.loginService.Login(this.loginForm.value);
+    this.loginService.UserLogin(this.loginForm.value).subscribe(data => {
+      if (data.success) {
+        sessionStorage.setItem('token', data.token);
+        this.router.navigate(['/home']);
+      } else {
+        this.router.navigateByUrl('/user-login');
+      }
+    });
   }
 }
-

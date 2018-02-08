@@ -40,6 +40,9 @@ export class UserRegisterComponent implements OnInit {
     };
   }
   Register(): void {
-    this.service.UserRegisterAndLogin(this.newUser.value);
+    this.service.UserRegister(this.newUser.value).subscribe((data) => {
+      console.log(data);
+      sessionStorage.setItem('jwt', JSON.stringify(data['token']));
+    });
   }
 }
