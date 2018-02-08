@@ -5,7 +5,8 @@ let userSchema = new mongoose.Schema({
   username: String,
   email: String,
   password: String,
-  admin: Boolean
+  admin: Boolean,
+  salt: String,
 });
 mongoose.model('dongerhub-user', userSchema);
 

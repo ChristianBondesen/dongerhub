@@ -23,19 +23,18 @@ ProjectRouter.get('/', (request, result) => {
 
 // GetById Project:id
 ProjectRouter.get('/:id', (request, result) => {
-  Project.findById(id, (err, prjct) => {
+  Project.findById(request.params.id, (err, project) => {
     if (err) {
       result.status(400).send(err);
     } else {
-      result.status(200).send(prjct);
+      result.status(200).send(project);
     }
   });
 });
 
 // Post Project
 ProjectRouter.post('/', (request, result) => {
-  Project.create(
-    {
+  Project.create({
       projectName: request.body.projectName,
       users: request.body.users,
       hoursSpent: request.body.hoursSpent
