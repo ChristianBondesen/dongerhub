@@ -14,33 +14,44 @@ const hash = require('../PasswordHasher');
 // CREATES A NEW USER
 router.post('/', function (req, res) {
   const Hasher = hash.saltHashPassword(req.body.password);
-  User.create({
-      name: req.body.name,
-      username: req.body.username,
-      email: req.body.email,
-      password: Hasher.passwordHash,
-      salt: Hasher.salt,
-    },
-    function (err, user) {
-      if (err) {
-        return res
-          .status(500)
-          .send('There was a problem adding the information to the database.');
-      }
-      const payload = {
-        username: user.username,
-        admin: user.admin
-      };
-      const token = jwt.sign(payload, config.secret, {
-        expiresIn: '1h'
-      });
-      res.status(200).json({
-        token: token,
-        user: payload,
-        status: 'success'
+  User.find({
+    username: req.body.username
+  }, (err, user) => {
+    if (user.length >= 1) {
+      return res.status(400).json({
+        status: 'error',
+        error: 'user already exists'
       });
     }
-  );
+
+    User.create({
+        name: req.body.name,
+        username: req.body.username,
+        email: req.body.email,
+        password: Hasher.passwordHash,
+        salt: Hasher.salt,
+      },
+      (err, user) => {
+        if (err) {
+          return res
+            .status(500)
+            .send('There was a problem adding the information to the database.');
+        }
+        const payload = {
+          username: user.username,
+          admin: user.admin
+        };
+        const token = jwt.sign(payload, config.secret, {
+          expiresIn: '1h'
+        });
+        res.status(200).json({
+          token: token,
+          user: payload,
+          status: 'success'
+        });
+      }
+    );
+  });
 });
 
 // RETURNS ALL THE USERS IN THE DATABASE
