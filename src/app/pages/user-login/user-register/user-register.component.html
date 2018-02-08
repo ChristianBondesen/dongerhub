@@ -2,24 +2,24 @@
   <form (ngSubmit)="Register()" [formGroup]="newUser" novalidate>
     <div class="example-container">
       <mat-form-field>
-        <input matInput placeholder="Enter your name" formControlName="name">
-        <mat-error *ngIf="newUser.invalid">invalid name</mat-error>
+        <input autocomplete='name' matInput placeholder="Enter your name" formControlName="name">
+        <mat-error *ngIf="newUser.invalid">invalid Name</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Enter your desired username" formControlName="username">
-        <mat-error *ngIf="newUser.invalid">invalid username</mat-error>
+        <input autocomplete='username' matInput placeholder="Enter your desired username" formControlName="username">
+        <mat-error *ngIf="newUser.invalid">invalid Username</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input type="password" matInput placeholder="Password" formControlName="password">
+        <input autocomplete='new-password' type="password" matInput placeholder="Password" formControlName="password">
       </mat-form-field>
       <mat-form-field>
-        <input type="password" matInput placeholder="Repeat Password" formControlName="repeatPassword">
+        <input autocomplete='repeat-password' type="password" matInput placeholder="Repeat Password" formControlName="repeatPassword">
+        <mat-error *ngIf="newUser.invalid">Does not match password</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input type="email" matInput placeholder="Repeat email" formControlName="email">
-        <mat-error *ngIf="newUser.invalid">invalid password</mat-error>
+        <input autocomplete='email' type="email" matInput placeholder="Repeat email" formControlName="email">
+        <mat-error *ngIf="newUser.invalid">Invalid Email</mat-error>
       </mat-form-field>
-      {{newUser.valid}}
     </div>
     <input type="submit" class="btn btn-success" [disabled]="newUser.invalid">
   </form>

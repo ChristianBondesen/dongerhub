@@ -4,6 +4,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { HowToJoinComponent } from './pages/how-to-join/how-to-join.component';
 import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { MostPopularComponent } from './pages/most-popular/most-popular.component';
+import { ProjectsModule } from './pages/projects/projects.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,10 +15,11 @@ const routes: Routes = [
   },
   { path: 'how-to-join', component: HowToJoinComponent },
   { path: 'most-popular', component: MostPopularComponent },
+  { path: 'projects', loadChildren: 'app/pages/projects/projects.module#ProjectsModule' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

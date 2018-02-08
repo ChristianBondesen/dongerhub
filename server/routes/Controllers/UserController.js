@@ -4,8 +4,8 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
-const User = require('./user.js');
-const config = require('./config.js');
+const User = require('../DatabaseModels/user.js');
+const config = require('../config.js');
 const jwt = require('jsonwebtoken');
 
 // CREATES A NEW USER
