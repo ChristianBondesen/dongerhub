@@ -6,6 +6,7 @@ import { MaterialModule } from '../../material.module';
 import { Routes, RouterModule } from '@angular/router';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginService } from './user-login.service';
+import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
@@ -19,7 +20,15 @@ const routes: Routes = [
     ReactiveFormsModule,
     MaterialModule,
     RouterModule.forChild(routes),
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return sessionStorage.getItem('access_token');
+        },
+        whitelistedDomains: ['localhost:3000']
+      }
+    })
   ],
   exports: [],
   providers: [UserLoginService]
