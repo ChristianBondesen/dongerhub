@@ -1,9 +1,20 @@
 <div>
   <ul>
-    <li *ngFor="let proj of projects | async">
-        <mat-card>
-              
-        </mat-card>
-    </li>
+    <div *ngFor="let proj of projects | async">
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{proj.projectName}}
+          </mat-panel-title>
+          <mat-panel-description>
+            By: {{proj.users}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{proj.hoursSpent}} hours went into to this project</p>
+        <button mat-button>Details</button>
+      </mat-expansion-panel>
+      <br>
+    </div>
   </ul>
 </div>
