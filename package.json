@@ -44,6 +44,8 @@
     "@types/mongoose": "^5.0.1",
     "@types/node": "~6.0.60",
     "babel-eslint": "^8.2.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
     "codelyzer": "^4.0.1",
     "eslint": "^4.17.0",
     "eslint-config-google": "^0.9.1",
