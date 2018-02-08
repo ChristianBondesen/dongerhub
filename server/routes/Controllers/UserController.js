@@ -27,7 +27,12 @@ router.post('/', function (req, res) {
           .status(500)
           .send('There was a problem adding the information to the database.');
       }
-      res.status(200).send(user);
+      res.status(200).json({
+        username: user.username,
+        password: user.password,
+        token: null
+
+      });
     }
   );
 });
@@ -44,7 +49,7 @@ router.get('/', function (req, res) {
           id: item._id,
           name: item.name,
           username: item.username
-        }
+        };
 
       })
     );
