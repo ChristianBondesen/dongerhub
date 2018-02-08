@@ -1,14 +1,25 @@
 {
-  "extends": "google",
   "env": {
-    "node": true,
-    "es6": true
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module"
   },
   "rules": {
-    "linebreak-style": "off",
-    "object-curly-spacing": "off",
-    "comma-dangle": "off",
-    "new-cap": "off",
-    "arrow-parens": "off"
+    "indent": 0,
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
   }
 }

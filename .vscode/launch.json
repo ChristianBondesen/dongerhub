@@ -6,7 +6,10 @@
       "request": "launch",
       "name": "Launch via NPM",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "debug"],
+      "runtimeArgs": [
+        "run-script",
+        "debug"
+      ],
       "port": 9229
     },
     {
@@ -36,7 +39,9 @@
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
       "protocol": "inspector",
-      "args": ["${workspaceRoot}/protractor.conf.js"]
+      "args": [
+        "${workspaceRoot}/protractor.conf.js"
+      ]
     }
   ]
 }
