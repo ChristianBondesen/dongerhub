@@ -2,11 +2,11 @@
   <div class="example-container">
     <mat-form-field>
       <input matInput placeholder="Enter your username" formControlName="username">
-      <mat-error *ngIf="loginForm.invalid">invalid username</mat-error>
+      <mat-error *ngIf="loginForm.invalid">Required</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input type="password" matInput placeholder="Password" formControlName="password">
-      <mat-error *ngIf="loginForm.invalid">invalid password</mat-error>
+      <mat-error *ngIf="loginForm.invalid">Required</mat-error>
     </mat-form-field>
 
   </div>
