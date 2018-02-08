@@ -7,15 +7,7 @@ import { Project } from '../../../models/project-models/project';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
+  constructor() {}
 
-  private projects: Project[];
-
-  constructor() { }
-
-  ngOnInit() {
-    this.projects = [
-      {name: 'Donger Project', hoursSpend: 10},
-      {name: 'Simons Super Project', hoursSpend: 1}
-    ];
-  }
+  ngOnInit() {}
 }
