@@ -1,7 +1,7 @@
 <form (ngSubmit)="Login()" [formGroup]="loginForm" novalidate>
   <div class="example-container">
     <mat-form-field>
-      <input matInput placeholder="Enter your username" formControlName="name">
+      <input matInput placeholder="Enter your username" formControlName="username">
       <mat-error *ngIf="loginForm.invalid">invalid username</mat-error>
     </mat-form-field>
     <mat-form-field>

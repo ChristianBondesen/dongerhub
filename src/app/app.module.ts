@@ -10,6 +10,8 @@ import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { MostPopularComponent } from './pages/most-popular/most-popular.component';
 import { HowToJoinComponent } from './pages/how-to-join/how-to-join.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GetPostService } from './pages/most-popular/getPosts.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MostPopularComponent,
     HowToJoinComponent
   ],
-  imports: [BrowserModule, MaterialModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    MaterialModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
+  ],
+  providers: [GetPostService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

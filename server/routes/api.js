@@ -7,10 +7,15 @@ const db = require('./db'); // eslint-disable-line no-unused-vars
 router.get('/', (req, res) => {
   res.send('still wurks');
 });
-const auth = require('./authentication.js');
+// Authentication of users and token generation
+const auth = require('./Controllers/authentication.js');
 router.use('/auth', auth);
-// ADD THESE TWO LINES
-const UserController = require('./UserController');
+
+// User conntrol
+const UserController = require('./Controllers/UserController');
 router.use('/users', UserController);
+
+const PostController = require('./Controllers/PostController');
+router.use('/posts', PostController)
 
 module.exports = router;

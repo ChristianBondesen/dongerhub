@@ -1,11 +1,11 @@
 const express = require('express');
 const authRout = express.Router();
-const config = require('./config.js');
+const config = require('../config.js');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 authRout.use(bodyParser.urlencoded({ extended: true }));
 authRout.use(bodyParser.json());
-const User = require('./user.js');
+const User = require('../DatabaseModels/user.js');
 
 authRout.post('', (req, res) => {
   User.findOne(

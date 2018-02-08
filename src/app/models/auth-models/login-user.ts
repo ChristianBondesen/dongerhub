@@ -1,7 +1,7 @@
 import { Token } from './token';
 
 export interface User {
-  name: string;
+  username: string;
   password: string;
   token: Token;
 }
