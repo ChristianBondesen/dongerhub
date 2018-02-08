@@ -27,7 +27,18 @@ router.post('/', function (req, res) {
           .status(500)
           .send('There was a problem adding the information to the database.');
       }
-      res.status(200).send(user);
+      const payload = {
+        username: user.username,
+        admin: user.admin
+      };
+      const token = jwt.sign(payload, config.secret, {
+        expiresIn: '1h'
+      });
+      res.status(200).json({
+        token: token,
+        user: payload,
+        status: 'success'
+      });
     }
   );
 });
@@ -44,7 +55,7 @@ router.get('/', function (req, res) {
           id: item._id,
           name: item.name,
           username: item.username
-        }
+        };
 
       })
     );

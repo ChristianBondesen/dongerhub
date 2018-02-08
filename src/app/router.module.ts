@@ -19,7 +19,8 @@ const routes: Routes = [
     path: 'projects',
     loadChildren:
       'app/pages/projects/projects-routing.module#ProjectsRoutingModule'
-  }
+  },
+  { path: '**', component: HomepageComponent }
 ];
 
 @NgModule({

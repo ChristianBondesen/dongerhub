@@ -15,7 +15,7 @@ export class UserLoginComponent implements OnInit {
     private fb: FormBuilder,
     private loginService: UserLoginService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -27,6 +27,7 @@ export class UserLoginComponent implements OnInit {
     this.loginService.UserLogin(this.loginForm.value).subscribe(data => {
       if (data.success) {
         sessionStorage.setItem('token', data.token);
+        this.router.navigate(['/home']);
       } else {
         this.router.navigateByUrl('/user-login');
       }

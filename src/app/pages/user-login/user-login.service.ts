@@ -6,7 +6,7 @@ import { Token } from '../../models/auth-models/token';
 
 @Injectable()
 export class UserLoginService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   UserLogin(user: User): Observable<Token> {
     return this.http.post<Token>('api/auth', user);

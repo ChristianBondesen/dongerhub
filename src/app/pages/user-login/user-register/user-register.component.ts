@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserLoginService } from '../user-login.service';
+import { User } from '../../../models/auth-models/login-user';
 
 @Component({
   selector: 'app-user-register',
@@ -9,7 +10,7 @@ import { UserLoginService } from '../user-login.service';
 })
 export class UserRegisterComponent implements OnInit {
   newUser: FormGroup;
-  constructor(private fb: FormBuilder, private service: UserLoginService) {}
+  constructor(private fb: FormBuilder, private service: UserLoginService) { }
 
   ngOnInit() {
     this.newUser = this.fb.group(
@@ -39,8 +40,9 @@ export class UserRegisterComponent implements OnInit {
     };
   }
   Register(): void {
-    this.service.UserRegister(this.newUser.value).subscribe(data => {
+    this.service.UserRegister(this.newUser.value).subscribe((data) => {
       console.log(data);
+      sessionStorage.setItem('jwt', JSON.stringify(data['token']));
     });
   }
 }
