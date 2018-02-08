@@ -8,7 +8,7 @@ export class ProjectService {
 
   constructor(private http: HttpClient) {}
 
-    getProject(): Observable<object> {
-      return this.http.get('api/projects');
+    getProjects(): Observable<Project[]> {
+      return this.http.get<Project[]>('api/projects');
   }
 }

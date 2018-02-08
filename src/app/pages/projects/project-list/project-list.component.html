@@ -1,3 +1,7 @@
-<p>
-  project-list works!
-</p>
+<div>
+  <ul>
+    <li *ngFor="let proj of projects | async">
+      {{proj.projectName}} {{proj.hoursSpent}}
+    </li>
+  </ul>
+</div>

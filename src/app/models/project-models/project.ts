@@ -1,4 +1,5 @@
 export class Project {
-  name: string;
-  hoursSpend: number;
+  projectName: string;
+  users: string;
+  hoursSpent: number;
 }
