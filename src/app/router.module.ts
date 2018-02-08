@@ -13,11 +13,11 @@ const routes: Routes = [
     loadChildren: 'app/pages/user-login/login.module#LoginModule'
   },
   { path: 'how-to-join', component: HowToJoinComponent },
-  { path: 'most-popular', component: MostPopularComponent },
+  { path: 'most-popular', component: MostPopularComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

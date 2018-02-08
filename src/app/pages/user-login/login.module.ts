@@ -7,10 +7,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginService } from './user-login.service';
 import { JwtModule } from '@auth0/angular-jwt';
-import { HttpClientModule } from '@angular/common/http';
+import { MostPopularComponent } from '../most-popular/most-popular.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },
+
   { path: 'register', component: UserRegisterComponent }
 ];
 @NgModule({
@@ -19,16 +20,7 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
-    RouterModule.forChild(routes),
-    HttpClientModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: () => {
-          return sessionStorage.getItem('access_token');
-        },
-        whitelistedDomains: ['localhost:3000']
-      }
-    })
+    RouterModule.forChild(routes)
   ],
   exports: [],
   providers: [UserLoginService]

@@ -1,2 +1,7 @@
 <h1 class="display-1">Most Popular</h1>
-<div *ngFor=" let a of posts | async "></div>
+<div *ngFor=" let a of posts | async ">
+
+    {{a.post}}
+    <br> written by: {{a.author}}
+    <hr style="margin-bottom: 1em;">
+</div>
