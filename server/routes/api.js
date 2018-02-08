@@ -18,4 +18,7 @@ router.use('/users', UserController);
 const PostController = require('./Controllers/PostController');
 router.use('/posts', PostController)
 
+const ProjectController = require('./Controllers/ProjectController');
+router.use('/projects', ProjectController)
+
 module.exports = router;

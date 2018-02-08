@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   { path: 'how-to-join', component: HowToJoinComponent },
   { path: 'most-popular', component: MostPopularComponent },
-  { path: 'projects', loadChildren: () => ProjectsModule }
+  { path: 'projects', loadChildren: 'app/pages/projects/projects.module#ProjectsModule' }
 ];
 
 @NgModule({
