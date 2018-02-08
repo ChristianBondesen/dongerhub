@@ -4,15 +4,11 @@ import { CommonModule } from '@angular/common';
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectComponent } from './project/project.component';
 import { ProjectListComponent } from './project-list/project-list.component';
-import { Routes, RouterModule } from '@angular/router';
-
-const routes: Routes = [
-  { path: '', component: ProjectListComponent },
-  { path: ':id', component: ProjectComponent }
-];
+import { ProjectService } from './project.service';
+import { MaterialModule } from '../../material.module';
 
 @NgModule({
-  imports: [CommonModule, ProjectsRoutingModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, ProjectsRoutingModule, MaterialModule],
   declarations: [ProjectComponent, ProjectListComponent]
 })
 export class ProjectsModule {}

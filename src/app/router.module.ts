@@ -15,7 +15,11 @@ const routes: Routes = [
   },
   { path: 'how-to-join', component: HowToJoinComponent },
   { path: 'most-popular', component: MostPopularComponent },
-  { path: 'projects', loadChildren: 'app/pages/projects/projects.module#ProjectsModule' },
+  {
+    path: 'projects',
+    loadChildren:
+      'app/pages/projects/projects-routing.module#ProjectsRoutingModule'
+  },
   { path: '**', component: HomepageComponent }
 ];
 
@@ -23,4 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
