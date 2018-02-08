@@ -10,20 +10,16 @@ const User = require('../DatabaseModels/user.js');
 const config = require('../config.js');
 const jwt = require('jsonwebtoken');
 const hash = require('../PasswordHasher');
+const Login = require('../LoginHelp');
+const login = new Login;
+const message = require('../Responses');
 
 // CREATES A NEW USER
 router.post('/', function (req, res) {
   const Hasher = hash.saltHashPassword(req.body.password);
-  User.find({
-    username: req.body.username
-  }, (err, user) => {
-    if (user.length >= 1) {
-      return res.status(400).json({
-        status: 'error',
-        error: 'user already exists'
-      });
-    }
-
+  if (login.exists(req.body.username)) {
+    res.status(400).json(message.NoUser);
+  } else {
     User.create({
         name: req.body.name,
         username: req.body.username,
@@ -34,8 +30,7 @@ router.post('/', function (req, res) {
       (err, user) => {
         if (err) {
           return res
-            .status(500)
-            .send('There was a problem adding the information to the database.');
+            .status(500);
         }
         const payload = {
           username: user.username,
@@ -51,7 +46,8 @@ router.post('/', function (req, res) {
         });
       }
     );
-  });
+
+  }
 });
 
 // RETURNS ALL THE USERS IN THE DATABASE
