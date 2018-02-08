@@ -2,10 +2,13 @@
 const express = require('express');
 const ProjectRouter = express.Router();
 const bodyParser = require('body-parser');
-ProjectRouter.use(bodyParser.urlencoded({ extended: true }));
+ProjectRouter.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 ProjectRouter.use(bodyParser.json());
 const Project = require('../DatabaseModels/project.js');
-const config = require('../config.js');
 
 // GetAll Projects
 ProjectRouter.get('/', (request, result) => {
