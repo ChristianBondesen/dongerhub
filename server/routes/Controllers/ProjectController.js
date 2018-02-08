@@ -7,14 +7,12 @@ ProjectRouter.use(bodyParser.json());
 const Project = require('../DatabaseModels/project.js');
 const config = require('../config.js');
 
-
 // GetAll Projects
 ProjectRouter.get('/', (request, result) => {
   Project.find({}, (err, res) => {
-    if(err) {
+    if (err) {
       result.status(400).send(err);
-    }
-    else {
+    } else {
       result.status(200).send(res);
     }
   });
@@ -22,39 +20,37 @@ ProjectRouter.get('/', (request, result) => {
 
 // GetById Project:id
 ProjectRouter.get('/:id', (request, result) => {
-    Project.findById(id, (err, prjct) => {
-      if(err) {
-        result.status(400).send(err);
-      }
-      else {
-        result.status(200).send(prjct);
-      }
-    });
+  Project.findById(id, (err, prjct) => {
+    if (err) {
+      result.status(400).send(err);
+    } else {
+      result.status(200).send(prjct);
+    }
+  });
 });
 
 // Post Project
 ProjectRouter.post('/', (request, result) => {
-  Project.create({
-    projectName: request.body.projectName,
-    users: request.body.users,
-    hoursSpent: request.body.hoursSpent
-  }),
-  (err, project) => {
-    if(err) {
-      result.status(400).json({
-        project: null,
-        succes: false
-      });
+  Project.create(
+    {
+      projectName: request.body.projectName,
+      users: request.body.users,
+      hoursSpent: request.body.hoursSpent
+    },
+    (err, project) => {
+      if (err) {
+        result.status(400).json({
+          project: null,
+          succes: false
+        });
+      } else {
+        result.status(200).json({
+          project: project,
+          succes: true
+        });
+      }
     }
-    else {
-      result.status(200).json({
-        project: project,
-        succes: true,
-      });
-    }
-  };
+  );
 });
 
 module.exports = ProjectRouter;
-
-
