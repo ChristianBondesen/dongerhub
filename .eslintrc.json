@@ -4,9 +4,6 @@
     "node": true
   },
   "extends": "eslint:recommended",
-  "parserOptions": {
-    "sourceType": "module"
-  },
   "rules": {
     "indent": 0,
     "linebreak-style": [

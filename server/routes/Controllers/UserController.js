@@ -9,45 +9,21 @@ router.use(bodyParser.json());
 const User = require('../DatabaseModels/user.js');
 const config = require('../config.js');
 const jwt = require('jsonwebtoken');
-const hash = require('../PasswordHasher');
-const Login = require('../LoginHelp');
-const login = new Login;
+
+const UserControl = require('../LoginHelp');
+const _userControl = new UserControl(User);
+
 const message = require('../Responses');
 
 // CREATES A NEW USER
-router.post('/', function (req, res) {
-  const Hasher = hash.saltHashPassword(req.body.password);
-  if (login.exists(req.body.username)) {
-    res.status(400).json(message.NoUser);
-  } else {
-    User.create({
-        name: req.body.name,
-        username: req.body.username,
-        email: req.body.email,
-        password: Hasher.passwordHash,
-        salt: Hasher.salt,
-      },
-      (err, user) => {
-        if (err) {
-          return res
-            .status(500);
-        }
-        const payload = {
-          username: user.username,
-          admin: user.admin
-        };
-        const token = jwt.sign(payload, config.secret, {
-          expiresIn: '1h'
-        });
-        res.status(200).json({
-          token: token,
-          user: payload,
-          status: 'success'
-        });
-      }
-    );
-
+router.post('/', async (req, res) => {
+  try {
+    let returnData = await _userControl.method(req.body);
+    res.status(200).json(returnData);
+  } catch (e) {
+    console.log(e);
   }
+
 });
 
 // RETURNS ALL THE USERS IN THE DATABASE
