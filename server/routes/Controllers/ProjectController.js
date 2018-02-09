@@ -1,12 +1,14 @@
 // Project controller
 const express = require('express');
+
 const ProjectRouter = express.Router();
+
 const bodyParser = require('body-parser');
-ProjectRouter.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
+
+ProjectRouter.use(bodyParser.urlencoded({
+  extended: true,
+}));
+
 ProjectRouter.use(bodyParser.json());
 const Project = require('../DatabaseModels/project.js');
 
@@ -37,22 +39,21 @@ ProjectRouter.post('/', (request, result) => {
   Project.create({
       projectName: request.body.projectName,
       users: request.body.users,
-      hoursSpent: request.body.hoursSpent
+      hoursSpent: request.body.hoursSpent,
     },
     (err, project) => {
       if (err) {
         result.status(400).json({
           project: null,
-          succes: false
+          succes: false,
         });
       } else {
         result.status(200).json({
-          project: project,
-          succes: true
+          project,
+          succes: true,
         });
       }
-    }
-  );
+    });
 });
 
 module.exports = ProjectRouter;
